@@ -11,6 +11,15 @@ TagManager:
   - agent
   - ground
   - frozenAgent
+  - tile
+  - plus
+  - ex
+  - pyramid
+  - switchOff
+  - block
+  - goal
+  - stone
+  - switchOn
   layers:
   - Default
   - TransparentFX
