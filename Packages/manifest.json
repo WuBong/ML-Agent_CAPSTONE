@@ -4,7 +4,7 @@
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.ml-agents": "2.0.1",
-    "com.unity.ml-agents.extensions": "file:ml-agents-release_17/ml-agents-release_17/com.unity.ml-agents.extensions",
+    "com.unity.ml-agents.extensions": "file:ml-agents-release_17/com.unity.ml-agents.extensions",
     "com.unity.scriptablebuildpipeline": "1.21.25",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.timeline": "1.7.6",
