@@ -76,3 +76,4 @@ crashlytics-build.properties
 /Packages/com.unity.ml-agents.extensions
 Packages/packages-lock.json
 /Packages/ml-agents-release_19
+/results
