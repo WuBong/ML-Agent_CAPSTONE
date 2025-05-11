@@ -1,0 +1,47 @@
+{
+    "Pathfinder": {
+        "checkpoints": [
+            {
+                "steps": 509983,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-509983.onnx",
+                "reward": 0.0,
+                "creation_time": 1746984946.0857573,
+                "auxillary_file_paths": [
+                    "results\\curri1\\Pathfinder\\Pathfinder-509983.pt"
+                ]
+            },
+            {
+                "steps": 719672,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-719672.onnx",
+                "reward": 0.0,
+                "creation_time": 1746986685.9454346,
+                "auxillary_file_paths": [
+                    "results\\curri1\\Pathfinder\\Pathfinder-719672.pt"
+                ]
+            },
+            {
+                "steps": 901031,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-901031.onnx",
+                "reward": 0.0,
+                "creation_time": 1746987604.7499459,
+                "auxillary_file_paths": [
+                    "results\\curri1\\Pathfinder\\Pathfinder-901031.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 901031,
+            "file_path": "results\\curri1\\Pathfinder.onnx",
+            "reward": 0.0,
+            "creation_time": 1746987604.7499459,
+            "auxillary_file_paths": [
+                "results\\curri1\\Pathfinder\\Pathfinder-901031.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.26.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}

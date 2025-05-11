@@ -20,6 +20,9 @@ TagManager:
   - goal
   - stone
   - switchOn
+  - Start
+  - Wall
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -27,9 +30,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wall
+  - Target
+  - Agent
   - 
   - 
   - 
