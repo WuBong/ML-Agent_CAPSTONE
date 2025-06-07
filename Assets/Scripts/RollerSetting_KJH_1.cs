@@ -8,6 +8,6 @@ public class RollerSetting : MonoBehaviour
     public Material startMaterial;
     public Material returnMaterial;
 
-    public float agentRunSpeed;
-    public float agentRotationSpeed;
+    public float agentRunSpeed = 5f;
+    public float agentRotationSpeed = 180f;
 }
