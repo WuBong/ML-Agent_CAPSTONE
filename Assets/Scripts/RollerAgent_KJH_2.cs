@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class RollerAgent_KJH_1 : Agent
+public class RollerAgent_KJH_2 : Agent
 {
     Rigidbody rBody;
     RollerSetting m_RollerSetting;
@@ -28,7 +28,7 @@ public class RollerAgent_KJH_1 : Agent
     {
         rBody = GetComponent<Rigidbody>();
         m_RollerSetting = FindObjectOfType<RollerSetting>();
-        StartPoint = GameObject.FindGameObjectWithTag("Start_A").transform;
+        StartPoint = GameObject.FindGameObjectWithTag("Start_B").transform;
     }
 
     public override void OnEpisodeBegin()
@@ -136,10 +136,10 @@ public class RollerAgent_KJH_1 : Agent
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Target_A"))
+        if (collision.gameObject.CompareTag("Target_B"))
         {
             Debug.Log("Goal Hit");
-            SetReward(2f);
+            SetReward(3f);
             EndEpisode();
         }
 
@@ -150,10 +150,10 @@ public class RollerAgent_KJH_1 : Agent
             this.transform.rotation = Quaternion.Euler(0f, this.transform.eulerAngles.y, 0f);
         }
 
-        if(collision.gameObject.CompareTag("B"))
+        if(collision.gameObject.CompareTag("A"))
         {
             Debug.Log("Hit Each Other");
-            SetReward(-0.3f);
+            SetReward(-0.2f);
         }
     }
 
