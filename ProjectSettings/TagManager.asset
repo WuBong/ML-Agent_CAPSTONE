@@ -41,6 +41,12 @@ TagManager:
   - lock
   - dragon
   - portal
+  - A
+  - B
+  - Start_A
+  - Start_B
+  - Target_A
+  - Target_B
   layers:
   - Default
   - TransparentFX
@@ -49,10 +55,10 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
-  - 
-  - 
-  - 
+  - A
+  - B
+  - Start_A
+  - Start_B
   - 
   - 
   - 
