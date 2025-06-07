@@ -2,40 +2,40 @@
     "Pathfinder": {
         "checkpoints": [
             {
-                "steps": 509983,
-                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-509983.onnx",
+                "steps": 1499989,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1499989.onnx",
                 "reward": 0.0,
-                "creation_time": 1746984946.0857573,
+                "creation_time": 1749301845.0368364,
                 "auxillary_file_paths": [
-                    "results\\curri1\\Pathfinder\\Pathfinder-509983.pt"
+                    "results\\curri1\\Pathfinder\\Pathfinder-1499989.pt"
                 ]
             },
             {
-                "steps": 719672,
-                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-719672.onnx",
-                "reward": 0.0,
-                "creation_time": 1746986685.9454346,
+                "steps": 1583862,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1583862.onnx",
+                "reward": null,
+                "creation_time": 1749302051.6823053,
                 "auxillary_file_paths": [
-                    "results\\curri1\\Pathfinder\\Pathfinder-719672.pt"
+                    "results\\curri1\\Pathfinder\\Pathfinder-1583862.pt"
                 ]
             },
             {
-                "steps": 901031,
-                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-901031.onnx",
+                "steps": 1727748,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1727748.onnx",
                 "reward": 0.0,
-                "creation_time": 1746987604.7499459,
+                "creation_time": 1749302608.0557153,
                 "auxillary_file_paths": [
-                    "results\\curri1\\Pathfinder\\Pathfinder-901031.pt"
+                    "results\\curri1\\Pathfinder\\Pathfinder-1727748.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 901031,
+            "steps": 1727748,
             "file_path": "results\\curri1\\Pathfinder.onnx",
             "reward": 0.0,
-            "creation_time": 1746987604.7499459,
+            "creation_time": 1749302608.0557153,
             "auxillary_file_paths": [
-                "results\\curri1\\Pathfinder\\Pathfinder-901031.pt"
+                "results\\curri1\\Pathfinder\\Pathfinder-1727748.pt"
             ]
         }
     },
