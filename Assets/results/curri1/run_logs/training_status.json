@@ -2,15 +2,6 @@
     "Pathfinder": {
         "checkpoints": [
             {
-                "steps": 1499989,
-                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1499989.onnx",
-                "reward": 0.0,
-                "creation_time": 1749301845.0368364,
-                "auxillary_file_paths": [
-                    "results\\curri1\\Pathfinder\\Pathfinder-1499989.pt"
-                ]
-            },
-            {
                 "steps": 1583862,
                 "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1583862.onnx",
                 "reward": null,
@@ -27,15 +18,24 @@
                 "auxillary_file_paths": [
                     "results\\curri1\\Pathfinder\\Pathfinder-1727748.pt"
                 ]
+            },
+            {
+                "steps": 1790652,
+                "file_path": "results\\curri1\\Pathfinder\\Pathfinder-1790652.onnx",
+                "reward": null,
+                "creation_time": 1749309918.8919556,
+                "auxillary_file_paths": [
+                    "results\\curri1\\Pathfinder\\Pathfinder-1790652.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1727748,
+            "steps": 1790652,
             "file_path": "results\\curri1\\Pathfinder.onnx",
-            "reward": 0.0,
-            "creation_time": 1749302608.0557153,
+            "reward": null,
+            "creation_time": 1749309918.8919556,
             "auxillary_file_paths": [
-                "results\\curri1\\Pathfinder\\Pathfinder-1727748.pt"
+                "results\\curri1\\Pathfinder\\Pathfinder-1790652.pt"
             ]
         }
     },

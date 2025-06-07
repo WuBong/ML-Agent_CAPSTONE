@@ -96,7 +96,6 @@ public class RollerAgent_KJH_1 : Agent
     }
 
 
-
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
