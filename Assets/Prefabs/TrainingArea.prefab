@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 5537555333032580646}
   - component: {fileID: 5688775602628225786}
   - component: {fileID: 3388613803832262317}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Target
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -2430,7 +2430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 11
+    VectorObservationSize: 6
     NumStackedVectorObservations: 2
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -2462,18 +2462,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: GridSensor
   m_CellScale: {x: 1, y: 0.01, z: 1}
-  m_GridSize: {x: 16, y: 1, z: 16}
+  m_GridSize: {x: 25, y: 1, z: 25}
   m_RotateWithAgent: 1
-  m_AgentGameObject: {fileID: 0}
-  m_DetectableTags: []
+  m_AgentGameObject: {fileID: 4527201722617308234}
+  m_DetectableTags:
+  - Target
+  - Wall
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_MaxColliderBufferSize: 500
   m_InitialColliderBufferSize: 4
-  m_DebugColors: []
-  m_GizmoYOffset: 0
-  m_ShowGizmos: 0
+  m_DebugColors:
+  - {r: 1, g: 0.07450981, b: 0, a: 1}
+  - {r: 0, g: 0.25330448, b: 1, a: 0}
+  m_GizmoYOffset: 3.16
+  m_ShowGizmos: 1
   m_CompressionType: 1
   m_ObservationStacks: 1
 --- !u!1 &6095769761934210161
