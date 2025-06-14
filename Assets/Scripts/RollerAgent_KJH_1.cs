@@ -29,6 +29,22 @@ public class RollerAgent_KJH_1 : Agent
     public override void Initialize()
     {
         rBody = GetComponent<Rigidbody>();
+
+        if (Target != null)
+        {
+            if (Target.name == "Target") // 또는 Target.tag == "Target_1"
+            {
+                lastTargetPosition = new Vector3(-15f, 0.3f, -20f); // Agent 1 시작 위치
+            }
+            else if (Target.name == "Target_2") // 또는 Target.tag == "Target_2"
+            {
+                lastTargetPosition = new Vector3(15f, 0.3f, -20f); // Agent 2 시작 위치
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"{gameObject.name} has no Target assigned!");
+        }
     }
 
     public override void OnEpisodeBegin()
@@ -111,25 +127,27 @@ public class RollerAgent_KJH_1 : Agent
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Target"))
+        if (other.gameObject == Target.gameObject)
         {
             SetReward(5f);
             EndEpisode();
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
 
-        if (tag == "Target")
-        {
-            SetReward(5f);
-            EndEpisode();
-        }
-        else if (tag == "Wall")
+
+        if (tag == "Wall")
         {
             AddReward(-0.005f);
             Debug.Log("Wall collision!");
+        }
+        else if (tag == "Agent")
+        {
+            AddReward(-0.2f);
+            Debug.Log("Agent Collision!");
         }
     }
 
@@ -145,8 +163,8 @@ public class RollerAgent_KJH_1 : Agent
 
         for (int i = 0; i < maxTries && !validPosition; i++)
         {
-            mapHalfSizeX = Mathf.Min(7f + episodeCount * 0.001f, MAXmapHalfSizeX);
-            SizeZ = Mathf.Min(SizeZ + (episodeCount * 0.0005f), MAXmapHalfSizeZ);
+            mapHalfSizeX = Mathf.Min(7f + episodeCount * 0.01f, MAXmapHalfSizeX); //episode에 따라 목적지 랜덤범위 증가
+            SizeZ = Mathf.Min(SizeZ + (episodeCount * 0.01f), MAXmapHalfSizeZ);
 
             float randomX = Random.Range(-mapHalfSizeX, mapHalfSizeX);
             float randomZ = Random.Range(-MAXmapHalfSizeZ, SizeZ);
@@ -155,6 +173,7 @@ public class RollerAgent_KJH_1 : Agent
             Bounds goalBounds = new Bounds(goalPosition, new Vector3(3f, 3f, 3f));
             validPosition = true;
 
+            // 벽과 충돌 검사
             foreach (GameObject wall in walls)
             {
                 Collider wallCol = wall.GetComponent<Collider>();
@@ -164,10 +183,29 @@ public class RollerAgent_KJH_1 : Agent
                     break;
                 }
             }
+
+            // 다른 Target과 거리 검사
+            if (validPosition)
+            {
+                GameObject otherTarget = GameObject.FindWithTag("Target");
+                if (Target.tag == "Target")
+                    otherTarget = GameObject.FindWithTag("Target_2");
+                else if (Target.tag == "Target_2")
+                    otherTarget = GameObject.FindWithTag("Target");
+
+                if (otherTarget != null)
+                {
+                    float dist = Vector3.Distance(goalPosition, otherTarget.transform.localPosition);
+                    if (dist < 5f) // 최소 거리 조건
+                    {
+                        validPosition = false;
+                    }
+                }
+            }
         }
 
         if (!validPosition)
-            goalPosition = new Vector3(-5f, 0.3f, -10f);
+            goalPosition = new Vector3(-5f, 0.3f, -10f); // fallback 위치
 
         Target.transform.localPosition = goalPosition;
         lastTargetPosition = goalPosition;

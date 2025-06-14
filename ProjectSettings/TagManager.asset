@@ -42,6 +42,7 @@ TagManager:
   - Wall
   - Target
   - Target_2
+  - Agent
   layers:
   - Default
   - TransparentFX
@@ -51,7 +52,7 @@ TagManager:
   - UI
   - Target
   - Target_2
-  - 
+  - Agent
   - 
   - 
   - 
