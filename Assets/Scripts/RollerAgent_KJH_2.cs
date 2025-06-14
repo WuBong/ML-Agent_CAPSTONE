@@ -1,14 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class RollerAgent_KJH_1 : Agent
+public class RollerAgent_KJH_2 : Agent
 {
     Rigidbody rBody;
-    
+
     public Transform Target;
 
     public float agentRunSpeed = 1.5f;
@@ -24,7 +24,7 @@ public class RollerAgent_KJH_1 : Agent
     float mapHalfSizeX = 0f;
     float SizeZ = -5f;
 
-    Vector3 lastTargetPosition = new Vector3(-15, 0.3f, -20); // 초기 위치
+    Vector3 lastTargetPosition = new Vector3(15f, 0.3f, -20); // 초기 위치
 
     public override void Initialize()
     {
@@ -111,7 +111,7 @@ public class RollerAgent_KJH_1 : Agent
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Target"))
+        if (other.CompareTag("Target_2"))
         {
             SetReward(5f);
             EndEpisode();
@@ -121,7 +121,7 @@ public class RollerAgent_KJH_1 : Agent
     {
         string tag = collision.gameObject.tag;
 
-        if (tag == "Target")
+        if (tag == "Target_2")
         {
             SetReward(5f);
             EndEpisode();
@@ -173,3 +173,5 @@ public class RollerAgent_KJH_1 : Agent
         lastTargetPosition = goalPosition;
     }
 }
+
+

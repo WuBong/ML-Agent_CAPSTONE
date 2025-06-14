@@ -5,11 +5,12 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class RollerAgent_KJH_1 : Agent
+public class RollerAgent_KJH_one : Agent
 {
     Rigidbody rBody;
-    
+
     public Transform Target;
+    public string targetTag = "Target"; // Agent ∫∞∑Œ Target ∂«¥¬ Target_2∑Œ º≥¡§
 
     public float agentRunSpeed = 1.5f;
     public float agentRotationSpeed = 200f;
@@ -24,7 +25,7 @@ public class RollerAgent_KJH_1 : Agent
     float mapHalfSizeX = 0f;
     float SizeZ = -5f;
 
-    Vector3 lastTargetPosition = new Vector3(-15, 0.3f, -20); // Ï¥àÍ∏∞ ÏúÑÏπò
+    Vector3 lastTargetPosition;
 
     public override void Initialize()
     {
@@ -36,6 +37,8 @@ public class RollerAgent_KJH_1 : Agent
         rBody.angularVelocity = Vector3.zero;
         rBody.velocity = Vector3.zero;
 
+        // ø°¿Ã¿¸∆Æ ∫∞ √ ±‚ ¿ßƒ° º≥¡§
+        lastTargetPosition = GetInitialPositionByTag();
         transform.localPosition = lastTargetPosition;
 
         episodeCount++;
@@ -47,17 +50,17 @@ public class RollerAgent_KJH_1 : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(Target.localPosition);            // 3
-        sensor.AddObservation(transform.localPosition);         // 3
+        sensor.AddObservation(Target.localPosition);                          // 3
+        sensor.AddObservation(transform.localPosition);                       // 3
         sensor.AddObservation((Target.localPosition - transform.localPosition).normalized); // 3
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        AddReward(-1.5f / MaxStep); // ÏãúÍ∞Ñ Ìå®ÎÑêÌã∞
+        AddReward(-1.5f / MaxStep); // Ω√∞£ ∆–≥Œ∆º
 
         if (actionBuffers.DiscreteActions[0] != 0)
-            AddReward(0.002f); // ÎØ∏ÏÑ∏ Î≥¥ÏÉÅ
+            AddReward(0.002f); // πÃºº ∫∏ªÛ
 
         MoveAgent(actionBuffers.DiscreteActions);
 
@@ -78,6 +81,7 @@ public class RollerAgent_KJH_1 : Agent
             EndEpisode();
         }
 
+        // »∏¿¸ ∞Ì¡§
         Quaternion rot = transform.rotation;
         transform.rotation = Quaternion.Euler(0f, rot.eulerAngles.y, 0f);
     }
@@ -111,22 +115,21 @@ public class RollerAgent_KJH_1 : Agent
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Target"))
+        if (other.CompareTag(targetTag))
         {
             SetReward(5f);
             EndEpisode();
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
-        string tag = collision.gameObject.tag;
-
-        if (tag == "Target")
+        if (collision.gameObject.CompareTag(targetTag))
         {
             SetReward(5f);
             EndEpisode();
         }
-        else if (tag == "Wall")
+        else if (collision.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.005f);
             Debug.Log("Wall collision!");
@@ -171,5 +174,15 @@ public class RollerAgent_KJH_1 : Agent
 
         Target.transform.localPosition = goalPosition;
         lastTargetPosition = goalPosition;
+    }
+
+    private Vector3 GetInitialPositionByTag()
+    {
+        if (targetTag == "Target")
+            return new Vector3(-15f, 0.3f, -20f); // Agent_1 √ ±‚ ¿ßƒ°
+        else if (targetTag == "Target_2")
+            return new Vector3(15f, 0.3f, -20f);  // Agent_2 √ ±‚ ¿ßƒ°
+        else
+            return new Vector3(0f, 0.3f, -20f);   // ±‚∫ª∞™
     }
 }
