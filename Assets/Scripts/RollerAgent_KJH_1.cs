@@ -86,7 +86,7 @@ public class RollerAgent_KJH_1 : Agent
             stuckTimer += Time.deltaTime;
             if (stuckTimer > stuckTimeLimit)
             {
-                AddReward(-1.0f);
+                AddReward(-3.0f);
                 Debug.Log($"{gameObject.name} is stuck. Ending episode.");
                 EndEpisode();
                 return;
@@ -166,7 +166,7 @@ public class RollerAgent_KJH_1 : Agent
         }
         else if (tag == "Agent")
         {
-            AddReward(-1f);
+            AddReward(-3f);
             Debug.Log("Agent Collision!");
         }
     }
